@@ -160,7 +160,7 @@ def main(page: ft.Page):
         on_click=mostrar_explicacao,
         icon=ft.icons.HELP_OUTLINE,
         style=ft.ButtonStyle(
-            padding=20,
+            padding=20,)
     )
     
     btn_grafico = ft.ElevatedButton(
