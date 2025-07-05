@@ -149,7 +149,7 @@ def main(page: ft.Page):
     btn_calcular = ft.ElevatedButton(
         "Calcular Raízes",
         on_click=calcular_raizes,
-        icon=ft.icons.CALCULATE,
+        icon=ft.Icons.CALCULATE,
         style=ft.ButtonStyle(
             padding=20,
         )
@@ -158,7 +158,7 @@ def main(page: ft.Page):
     btn_explicar = ft.ElevatedButton(
         "Explicação",
         on_click=mostrar_explicacao,
-        icon=ft.icons.HELP_OUTLINE,
+        icon=ft.Icons.HELP_OUTLINE,
         style=ft.ButtonStyle(
             padding=20,)
     )
@@ -166,7 +166,7 @@ def main(page: ft.Page):
     btn_grafico = ft.ElevatedButton(
         "Mostrar Gráfico",
         on_click=mostrar_grafico,
-        icon=ft.icons.INSERT_CHART,
+        icon=ft.Icons.INSERT_CHART,
         style=ft.ButtonStyle(
             padding=20,
         )
