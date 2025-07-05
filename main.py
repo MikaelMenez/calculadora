@@ -10,7 +10,6 @@ def main(page: ft.Page):
     page.vertical_alignment = "start"
     page.padding = 20
     page.theme_mode = "light"
-    page.bgcolor = ft.colors.GREY_50
     page.scroll = "adaptive"
     
     # Variável para controlar se é mobile
@@ -35,10 +34,8 @@ def main(page: ft.Page):
             
             equation = botavariavel(equacao.value)
             raizes.value = raiz(equation, 'X')
-            raizes.color = ft.colors.GREEN_800
         except Exception as ex:
             raizes.value = f"Erro: {str(ex)}"
-            raizes.color = ft.colors.RED
         finally:
             loading_indicator.visible = False
             btn_calcular.disabled = False
@@ -55,17 +52,14 @@ def main(page: ft.Page):
                 value=explicacao_texto,
                 size=16,
                 selectable=True,
-                color=ft.colors.BLUE_800
             )
             grafico.src = ""
             grafico.visible = False
             solucao_header.value = "Explicação Detalhada:"
-            solucao_header.color = ft.colors.BLUE_800
         except Exception as ex:
             solucao_content.content = ft.Text(
                 value=f"Erro ao gerar explicação: {str(ex)}",
                 size=16,
-                color=ft.colors.RED
             )
         finally:
             loading_indicator.visible = False
@@ -82,12 +76,10 @@ def main(page: ft.Page):
         grafico.src_base64 = cria_grafico(equacao.value)
         grafico.visible = True
         solucao_header.value = f"Gráfico de {equacao.value}"
-        solucao_header.color = ft.colors.PURPLE_800
         solucao_content.visible = False
         
      except Exception as ex:
         solucao_header.value = f"Erro ao gerar gráfico: {str(ex)}"
-        solucao_header.color = ft.colors.RED
         grafico.visible = False
      finally:
         loading_indicator.visible = False
@@ -106,22 +98,18 @@ def main(page: ft.Page):
         "Calculadora de Equações",
         size=28,
         weight="bold",
-        color=ft.colors.BLUE_800,
         text_align="center"
     )
     
     subtitulo = ft.Text(
         "Insira uma equação e clique nos botões para calcular raízes ou explicação",
         size=14,
-        color=ft.colors.GREY_600,
         text_align="center"
     )
     
     equacao = ft.TextField(
         label="Digite sua equação (ex: x^2 - 4)",
         width=400,
-        border_color=ft.colors.BLUE_400,
-        focused_border_color=ft.colors.BLUE_700,
         text_size=16,
         content_padding=10,
     )
@@ -143,7 +131,6 @@ def main(page: ft.Page):
     solucao_content = ft.Container(
         content=ft.Text(""),
         padding=15,
-        bgcolor=ft.colors.GREY_100,
         border_radius=10,
         width=600,
         height=300,
@@ -165,8 +152,6 @@ def main(page: ft.Page):
         icon=ft.icons.CALCULATE,
         style=ft.ButtonStyle(
             padding=20,
-            bgcolor=ft.colors.BLUE_600,
-            color=ft.colors.WHITE
         )
     )
     
@@ -176,9 +161,6 @@ def main(page: ft.Page):
         icon=ft.icons.HELP_OUTLINE,
         style=ft.ButtonStyle(
             padding=20,
-            bgcolor=ft.colors.GREEN_600,
-            color=ft.colors.WHITE
-        )
     )
     
     btn_grafico = ft.ElevatedButton(
@@ -187,8 +169,6 @@ def main(page: ft.Page):
         icon=ft.icons.INSERT_CHART,
         style=ft.ButtonStyle(
             padding=20,
-            bgcolor=ft.colors.PURPLE_600,
-            color=ft.colors.WHITE
         )
     )
     
@@ -205,25 +185,24 @@ def main(page: ft.Page):
             [
                 titulo,
                 subtitulo,
-                ft.Divider(height=20, color=ft.colors.TRANSPARENT),
+                ft.Divider(height=20),
                 equacao,
-                ft.Divider(height=10, color=ft.colors.TRANSPARENT),
-                ft.Row([botoes,ft.Divider(height=20, color=ft.colors.TRANSPARENT)], alignment="center"),
-                ft.Divider(height=10, color=ft.colors.TRANSPARENT),
+                ft.Divider(height=10),
+                ft.Row([botoes,ft.Divider(height=20)], alignment="center"),
+                ft.Divider(height=10),
                 btn_grafico,
                 loading_indicator,
-                ft.Divider(height=20, color=ft.colors.TRANSPARENT),
+                ft.Divider(height=20),
                 ft.Container(
                     content=raizes,
                     padding=10,
-                    bgcolor=ft.colors.GREY_100,
                     border_radius=10,
                     width=400
                 ),
-                ft.Divider(height=20, color=ft.colors.TRANSPARENT),
+                ft.Divider(height=20),
                 solucao_header,
                 solucao_content,
-                ft.Divider(height=20, color=ft.colors.TRANSPARENT),
+                ft.Divider(height=20),
                 grafico
             ],
             spacing=0,
