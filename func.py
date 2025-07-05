@@ -1,5 +1,5 @@
 #from openai import OpenAI
-import google.generativeai as genai
+from google import genai
 import sympy
 from sympy import N,Symbol
 from sympy.solvers import solve
